@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <title>CRUD</title>
+    <style>
+        html{
+            height: 100%;
+        }
+        body {
+            
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(#0b121f, #0b1d33);	
+        }
+     
+    </style>
+
+</head>
+<body>
+    
+<%
+n =  new Date();
+y = n.getFullYear();
+m = n.getMonth() + 1;
+d = n.getDate();
+var x= m + '/' + d + '/' + y;
+%>
+
+<div class="container">
+    <div class="row">
+            <h1 style="text-align: center; color:aliceblue;">Add New Comment</h1>
+        <div style="width: 30%; margin: 30px auto;">
+            
+            <form action="/curd/<%=comment._id%>?_method=PUT" method="POST">
+            
+            <div class="form-group">
+                    <input class="form-control" type="text" placeholder="Text" value="<%=comment.text%>" name="comment[text]">
+            </div>
+            <div class="form-group">
+                        <input class="form-control" type="text" value="<%=x%>" name="comment[date]" readonly>
+                </div>
+                <input type="text" name="comment[username]" value="<%=currentUser.username%>" hidden readonly>
+            <div class="form-group">
+                    <button class="btn btn-info btn-lg btn-block">submit!</button>
+            </div>
+            
+            </form>
+            <a href="/curd"><-Go back</a>
+            </div>
+    </div>
+</div>
+
+</body>
+</html>
