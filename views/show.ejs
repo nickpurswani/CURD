@@ -14,17 +14,90 @@
             font-family: 'Arial', sans-serif;
             background: linear-gradient(#0b121f, #0b1d33);	
         }
-        td{
-            padding-left: 20px;
-            padding-right: 20px;
-            width: 200px;
-        }
+table {
+    border: none;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+  }
+  
+  table caption {
+    font-size: 1.5em;
+    margin: .5em 0 .75em;
+  }
+  
+  table tr {
+   
+    border: 1px solid black;
+    padding: .35em;
+  }
+  
+  table th,
+  table td {
+    padding: .625em;
+    text-align: center;
+  }
+  
+  table th {
+    font-size: .85em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+  
+  @media screen and (max-width: 600px) {
+    table {
+      border: 0;
+    }
+  
+    table caption {
+      font-size: 1.3em;
+    }
+    
+    table thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+    
+    table tr {
+      border-bottom: 3px solid black;
+      display: block;
+      margin-bottom: .625em;
+    }
+    
+    table td {
+      border-bottom: 1px solid black;
+      display: block;
+      font-size: .8em;
+      text-align: left;
+    }
+    
+    table td::before {
+      
+      content: attr(data-label);
+      float: left;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    
+    table td:last-child {
+      border-bottom: 0;
+    }
+  }
      
     </style>
 </head>
 <body>
     <div class="container" style="margin-top:5%; margin-left:15%;">
     <a href="/curd/new" class="btn btn-success">Add New Comment</a>
+    <a href="/" class="btn ">Home</a>
 
 
 <%comment.forEach(function(comment){%>
